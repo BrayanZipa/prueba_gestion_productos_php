@@ -55,7 +55,7 @@
     <?php
     include 'conexion.php';
 
-    $sqlConsulta = "select * from productos";
+    $sqlConsulta = "select * from productos ORDER BY id DESC";
     $resultado = mysqli_query($con, $sqlConsulta);
     ?>
 
