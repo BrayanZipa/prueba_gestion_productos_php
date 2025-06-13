@@ -105,7 +105,7 @@
                                                     OR precio = $busqueda 
                                                     OR total = $busqueda";
                                 } else {
-                                    $sqlConsulta2 = "SELECT * FROM productos WHERE nombre LIKE '%$busqueda%'";
+                                    $sqlConsulta2 = "SELECT * FROM productos WHERE nombre LIKE '%$busqueda%' OR descripcion LIKE '%$busqueda%'";
                                 }
 
                                 $resultado2 = mysqli_query($con, $sqlConsulta2);
@@ -122,6 +122,7 @@
                                         <th>Id</th>
                                         <th>SKU</th>
                                         <th>Nombre</th>
+                                        <th>Descripción</th>
                                         <th>Cantidad</th>
                                         <th>Precio</th>
                                         <th>Total</th>
@@ -135,6 +136,7 @@
                                             <td><?php echo $filas['id'] ?></td>
                                             <td><?php echo $filas['sku'] ?></td>
                                             <td><?php echo $filas['nombre'] ?></td>
+                                            <td><?php echo $filas['descripcion'] ?></td>
                                             <td><?php echo $filas['cantidad'] ?></td>
                                             <td><?php echo $filas['precio'] ?></td>
                                             <td><?php echo $filas['total'] ?></td>
@@ -158,6 +160,7 @@
                                     <th>Id</th>
                                     <th>SKU</th>
                                     <th>Nombre</th>
+                                    <th>Descripción</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Total</th>
@@ -171,6 +174,7 @@
                                         <td><?php echo $filas['id'] ?></td>
                                         <td><?php echo $filas['sku'] ?></td>
                                         <td><?php echo $filas['nombre'] ?></td>
+                                        <td><?php echo $filas['descripcion'] ?></td>
                                         <td><?php echo $filas['cantidad'] ?></td>
                                         <td><?php echo $filas['precio'] ?></td>
                                         <td><?php echo $filas['total'] ?></td>

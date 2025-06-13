@@ -50,15 +50,15 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="nombre" placeholder="Nombre" autocomplete="off" requerid pattern="[a-z A-Z]+">			
+            <input class="form-control" type="text" name="nombre" placeholder="Nombre" autocomplete="off" requerid>			
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="cantidad" placeholder="Cantidad" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+            <input class="form-control" type="text" name="cantidad" placeholder="Cantidad" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="precio" placeholder="Precio" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+            <input class="form-control" type="text" name="precio" placeholder="Precio" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
         </div>
 
         <div class="form-group">
