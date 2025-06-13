@@ -69,7 +69,7 @@
                 <div id="tarjetaFija" class="card card-body">
                     <form action="" method="POSt">
                         <div class="form-group">
-                            <input class="form-control" type="text" name="buscador" placeholder="Buscar por id" pattern="[0-9]+" autofocus>
+                            <input class="form-control" type="text" name="buscador" placeholder="Buscar" autofocus>
                         </div><br>
                         <input class="btn btn-success" type="submit" name="buscar" value="Buscar">
                     </form><br>
@@ -91,10 +91,23 @@
                     <?php
                         if (isset($_POST['buscar'])) {
 
-                            $id = $_POST['buscador'];
+                            $data = $_POST['buscador'];
 
-                            if (!empty($id)) {
-                                $sqlConsulta2 = "SELECT * FROM productos WHERE id=$id";
+                            if (!empty($data)) {
+                                // Escapa el valor para evitar inyección SQL
+                                $busqueda = mysqli_real_escape_string($con, $data);
+
+                                if (is_numeric($busqueda)) {
+                                    $sqlConsulta2 = "SELECT * FROM productos 
+                                                    WHERE id = $busqueda 
+                                                    OR sku = $busqueda 
+                                                    OR cantidad = $busqueda 
+                                                    OR precio = $busqueda 
+                                                    OR total = $busqueda";
+                                } else {
+                                    $sqlConsulta2 = "SELECT * FROM productos WHERE nombre LIKE '%$busqueda%'";
+                                }
+
                                 $resultado2 = mysqli_query($con, $sqlConsulta2);
                                 mostrarUnRegistro($resultado2);
                             }
