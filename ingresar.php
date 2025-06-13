@@ -44,25 +44,30 @@
 
 <body>
     <h3>Crear producto</h3>
-    <form action="ingresar.php" method="POST">
+    <form action="ingresar.php" method="POST" novalidate>
         <div class="form-group">
-            <input class="form-control" type="text" name="sku" placeholder="SKU" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+            <input class="form-control" type="text" name="sku" placeholder="SKU" autocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">	
+            <div class="invalid-feedback"></div>		
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="nombre" placeholder="Nombre" autocomplete="off" requerid>			
+            <input class="form-control" type="text" name="nombre" placeholder="Nombre" autocomplete="off" required>	
+            <div class="invalid-feedback"></div>		
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="cantidad" placeholder="Cantidad" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+            <input class="form-control" type="text" name="cantidad" placeholder="Cantidad" autocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">
+            <div class="invalid-feedback"></div>			
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" name="precio" placeholder="Precio" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+            <input class="form-control" type="text" name="precio" placeholder="Precio" autocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">
+            <div class="invalid-feedback"></div>			
         </div>
 
         <div class="form-group">
-            <textarea class="form-control" type="text" name="descripcion" placeholder="Descripción" rows="2" autocomplete="off"></textarea>			
+            <textarea class="form-control" type="text" name="descripcion" placeholder="Descripción" rows="2" autocomplete="off"></textarea>
+            <div class="invalid-feedback"></div>		
         </div>
 
         <div id="boton" class="form-group">
@@ -93,14 +98,14 @@
             if (!$ejecutar) {
                 echo "Error al ingresar los datos del producto ".mysqli_error($con);
             } else {
-                if($nombre=1){
-                    $_SESSION['message']='Registro almacenado correctamente';
-                    $_SESSION['color']='success';
-                    header("location:index.php");
-                }
+                $_SESSION['message']='Registro almacenado correctamente';
+                $_SESSION['color']='success';
+                header("location:index.php");
             }
         }
     }   
 ?>
+
+<script src="js/validarFormulario.js"></script>
 </body>
 </html>

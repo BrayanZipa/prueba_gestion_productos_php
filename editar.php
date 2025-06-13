@@ -52,27 +52,31 @@
         while($fila=mysqli_fetch_assoc($resultado)){ ?>
 
     <div>
-        <form action="editar.php" method="POST">
+        <form action="editar.php" method="POST" novalidate>
             <input type="hidden" name="idProducto" value="<?php echo $fila['id']?>">
 
             <div class="form-group">
-                <input class="form-control" type="text" name="sku" value="<?php echo $fila['sku']?>" placeholder="SKU" rautocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+                <input class="form-control" type="text" name="sku" value="<?php echo $fila['sku']?>" placeholder="SKU" rautocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">
+                <div class="invalid-feedback"></div>		
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="text" name="nombre" value="<?php echo $fila['nombre']?>" placeholder="Nombre" rautocomplete="off" requerid>			
+                <input class="form-control" type="text" name="nombre" value="<?php echo $fila['nombre']?>" placeholder="Nombre" rautocomplete="off" required>
+                <div class="invalid-feedback"></div>			
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="text" name="cantidad" value="<?php echo $fila['cantidad']?>" placeholder="Cantidad" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+                <input class="form-control" type="text" name="cantidad" value="<?php echo $fila['cantidad']?>" placeholder="Cantidad" autocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">
+                <div class="invalid-feedback"></div>		
             </div>
 
             <div class="form-group">
-                <input class="form-control" type="text" name="precio" value="<?php echo $fila['precio']?>" placeholder="Precio" autocomplete="off" requerid onkeypress="return /[0-9]/i.test(event.key)">			
+                <input class="form-control" type="text" name="precio" value="<?php echo $fila['precio']?>" placeholder="Precio" autocomplete="off" required onkeypress="return /[0-9]/i.test(event.key)">
+                <div class="invalid-feedback"></div>		
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" type="text" name="descripcion" placeholder="Descripción" requerid autocomplete="off"><?php echo $fila['descripcion']?></textarea>			
+                <textarea class="form-control" type="text" name="descripcion" placeholder="Descripción" autocomplete="off"><?php echo $fila['descripcion']?></textarea>		
             </div>
 
             <div id="boton" class="form-group">
@@ -114,5 +118,7 @@
             } 
         }       
     ?>
+
+    <script src="js/validarFormulario.js"></script>
 </body>
 </html>
